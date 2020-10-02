@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "499097486542",
+    "firebase_url": "https://calmatic.firebaseio.com",
+    "project_id": "calmatic",
+    "storage_bucket": "calmatic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499097486542:android:f7e17426fd36468d51fc9f",
+        "android_client_info": {
+          "package_name": "com.example.meditation_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499097486542-3kg2jdmshoh4hv2rr66f9b81e4qktli2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGwLeTYwm5p2amsMFrCiwTWTuMYxYrLs4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499097486542-3kg2jdmshoh4hv2rr66f9b81e4qktli2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
