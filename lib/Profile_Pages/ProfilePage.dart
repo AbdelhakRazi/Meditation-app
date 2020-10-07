@@ -6,7 +6,6 @@ import 'package:meditation_app/DatabaseManagament/Backend.dart';
 import 'package:meditation_app/Profile_Pages/EditProfile.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'dart:io';
 import 'package:meditation_app/Animation/fadetransition.dart';
 
 class ProfileTab extends StatefulWidget {

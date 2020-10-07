@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:meditation_app/active%20pages/Backend.dart';
+import 'package:meditation_app/DatabaseManagament/Backend.dart';
 import 'package:meditation_app/my_flutter_app_icons.dart';
 import 'package:meditation_app/Profile_Pages/ProfilePage.dart';
 import 'package:meditation_app/Animation/FadeAnimation.dart';

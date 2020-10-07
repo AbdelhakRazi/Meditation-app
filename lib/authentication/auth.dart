@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:meditation_app/active%20pages/Backend.dart';
+import 'package:meditation_app/DatabaseManagament/Backend.dart';
 import 'package:meditation_app/authentication/AuthExcpetionHandler.dart';
 
 class Authentication {
@@ -66,10 +66,12 @@ class Authentication {
   Future changepassword(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email.trim());
+      _status1 = AuthResultStatus.successful;
     } catch (e) {
+      _status1 = AuthResultStatus.undefined;
       print(e.toString());
       _status1 = AuthExceptionHandler.handleException(e);
-      return _status1;
     }
+    return _status1;
   }
 }

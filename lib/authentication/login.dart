@@ -291,16 +291,17 @@ class _LoginState extends State<Login> {
                                               actions: [
                                                 FlatButton(
                                                     onPressed: () async {
-                                                      await Authentication()
-                                                          .changepassword(
-                                                              changemail);
-
-                                                      Navigator.pop(context);
-                                                    }
-                                                    /*String errorMsg =
+                                                      dynamic res =
+                                                          await Authentication()
+                                                              .changepassword(
+                                                                  changemail);
+                                                      if (res !=
+                                                          AuthResultStatus
+                                                              .successful) {
+                                                        String errorMsg =
                                                             AuthExceptionHandler
                                                                 .generateExceptionMessage(
-                                                                    result1);
+                                                                    res);
                                                         return showDialog(
                                                             context: context,
                                                             builder:
@@ -344,10 +345,55 @@ class _LoginState extends State<Login> {
                                                                 ),
                                                               );
                                                             });
+                                                      } else {
+                                                        return showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (BuildContext
+                                                                    context) {
+                                                              return AlertDialog(
+                                                                actions: [
+                                                                  FlatButton(
+                                                                      onPressed:
+                                                                          () {
+                                                                        Navigator.of(context)
+                                                                            .pop();
+                                                                        Navigator.of(context)
+                                                                            .pop(); // dismiss dialog
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        'OK',
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                "nexa",
+                                                                            fontSize: MediaQuery.of(context).size.height /
+                                                                                37.64,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            color: Color(0xFF193441)),
+                                                                      )),
+                                                                ],
+                                                                content: Text(
+                                                                  'Check ur mail',
+                                                                  style: TextStyle(
+                                                                      fontFamily:
+                                                                          "nexa",
+                                                                      fontSize: MediaQuery.of(context)
+                                                                              .size
+                                                                              .height /
+                                                                          37.64,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      color: Color(
+                                                                          0xFF193441)),
+                                                                ),
+                                                              );
+                                                            });
                                                       }
                                                       // dismiss dialog
-                                                    },*/
-                                                    ,
+                                                    },
                                                     child: Text(
                                                       'Send Recovery mail',
                                                       style: TextStyle(
@@ -381,6 +427,8 @@ class _LoginState extends State<Login> {
                                                             Color(0xFF193441)),
                                                   ),
                                                   TextField(
+                                                    keyboardType: TextInputType
+                                                        .emailAddress,
                                                     onChanged: (value) {
                                                       changemail = value;
                                                     },
