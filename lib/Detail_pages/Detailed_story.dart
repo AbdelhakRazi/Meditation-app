@@ -85,14 +85,15 @@ class _DetailStoryState extends State<DetailStory> {
                 Align(
                   alignment: Alignment(-0.8, 0),
                   child: Text('MY STORY',
+                      textAlign: TextAlign.start,
                       style: TextStyle(
                           color: Color(0xFF3E606F),
                           fontFamily: 'Raleway',
                           fontWeight: FontWeight.bold,
                           fontSize: 17)),
                 ),
-                Align(
-                  alignment: Alignment(-0.8, 0),
+                Padding(
+                  padding: EdgeInsets.only(left: 20),
                   child: Text(widget.stories[widget.index],
                       style: TextStyle(
                           fontFamily: 'Raleway',

@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,13 +13,10 @@ import 'package:meditation_app/HomeAndLanding/Drawer.dart';
 import 'package:meditation_app/authentication/auth.dart';
 import 'package:meditation_app/my_flutter_app_icons.dart';
 import 'package:animations/animations.dart';
-import 'package:meditation_app/Profile_Pages/ProfilePage.dart';
 import 'package:meditation_app/HomeAndLanding/splash.dart';
 import 'package:meditation_app/Animation/FadeAnimation.dart';
-import 'package:meditation_app/Animation/fadetransition.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:flutter/services.dart' show rootBundle;
 
 class SecondTab extends StatefulWidget {
   @override
@@ -62,15 +58,15 @@ class _SecondTabState extends State<SecondTab> {
   }
 
   List<String> stories = [
-    '"I decided to smile\n for a minute"',
-    '"I stopped using the\n word meditation"',
-    '"I stayed up in on\n a saturday night"',
-    '"I learned how to\n stay in the moment"',
-    '"I found a solution \n for insomnia"',
-    '"I realized meditation\n could solve my binge\n problem"',
-    '"I used meditation\n to get over an illness"',
-    '"I found a method\n that worked for me"',
-    '"I used my nose and\n breath to make it work"',
+    '"I decided to smile for a minute"',
+    '"I stopped using the word meditation"',
+    '"I stayed up in on a saturday night"',
+    '"I learned how to stay in the moment"',
+    '"I found a solution for insomnia"',
+    '"I realized meditation could solve my binge problem"',
+    '"I used meditation to get over an illness"',
+    '"I found a method that worked for me"',
+    '"I used my nose and breath to make it work"',
   ];
   List<String> image_vol2 = [
     'https://images.unsplash.com/photo-1526779259212-939e64788e3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80',

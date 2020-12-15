@@ -43,13 +43,15 @@ class ClosedStory extends StatelessWidget {
                             ),
                             fit: BoxFit.cover))),
                 SizedBox(width: MediaQuery.of(context).size.width / 9.72),
-                Text(stories[index],
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                        fontFamily: 'nexa',
-                        fontSize: 19,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFFD1DBBD))),
+                Flexible(
+                  child: Text(stories[index],
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          fontFamily: 'nexa',
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFFD1DBBD))),
+                ),
               ],
             ),
             SizedBox(height: MediaQuery.of(context).size.height / 30)
