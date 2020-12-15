@@ -104,376 +104,284 @@ class _SecondTabState extends State<SecondTab> {
           UserData userdata = snapshot.data;
           GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
           if (snapshot.data != null) {
-            return Scaffold(
-              extendBodyBehindAppBar: true,
-              key: scaffoldkey,
-              drawer: Container(
-                width: MediaQuery.of(context).size.width / 2,
-                child: Drawer(
-                  // Add a ListView to the drawer. This ensures the user can scroll
-                  // through the options in the drawer if there isn't enough vertical
-                  // space to fit everything.
-                  child: Container(
-                    decoration: BoxDecoration(color: Color(0xFF193441)),
-                    child: ListView(
-                      // Important: Remove any padding from the ListView.
-                      padding: EdgeInsets.zero,
-                      children: <Widget>[
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height / 6),
-                        Align(
-                            alignment: Alignment(0, 0),
-                            child: Text(
-                              'Menu',
-                              style: TextStyle(
-                                fontFamily: 'Raleway',
-                                fontSize: 25,
-                                color: Colors.white,
-                              ),
-                            )),
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height / 20),
-                        Divider(
-                          indent: MediaQuery.of(context).size.width / 7,
-                          endIndent: MediaQuery.of(context).size.width / 8,
-                          color: Colors.white,
-                          thickness: 2.0,
-                        ),
-                        ListTile(
-                          leading: Icon(
-                            Icons.perm_identity,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          title: Text('Profile',
-                              style: TextStyle(
-                                  fontFamily: 'nexa',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.white)),
-                          onTap: () {
-                            Navigator.push(
-                                context, FadeRoute(page: ProfileTab()));
-                            scaffoldkey.currentState.openEndDrawer();
-                            // ...
-                          },
-                        ),
-                        ListTile(
-                          leading: Icon(
-                            Icons.last_page,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          title: Text('Sign out',
-                              style: TextStyle(
-                                  fontFamily: 'nexa',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.white)),
-                          onTap: () async {
-                            await _auth.signOut();
-                          },
-                        ),
-                        ListTile(
-                          leading: Icon(
-                            Icons.arrow_right,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          title: Text('About us',
-                              style: TextStyle(
-                                  fontFamily: 'nexa',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.white)),
-                          onTap: () {
-                            // Update the state of the app.
-                            // ...
-                          },
-                        ),
+            return SafeArea(
+              top: true,
+              child: Scaffold(
+                extendBodyBehindAppBar: true,
+                key: scaffoldkey,
+                drawer: Container(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Drawerbuild(scaffoldkey: scaffoldkey, auth: _auth),
+                ),
+                body: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFF3E606F),
+                        Color(0xFF193441),
                       ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                     ),
                   ),
-                ),
-              ),
-              body: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xFF3E606F),
-                      Color(0xFF193441),
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                ),
-                child: CustomScrollView(
-                  slivers: <Widget>[
-                    SliverAppBar(
-                      centerTitle: true,
-                      title: FadeAnimation(
-                        1.0,
-                        Text('Explore Plans',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Raleway',
-                                fontWeight: FontWeight.bold,
-                                fontSize: MediaQuery.of(context).size.height /
-                                    30.55)),
-                      ),
-                      elevation: 0.0,
-                      backgroundColor: Colors.transparent,
-                      leading: IconButton(
-                        icon: Icon(MyFlutterApp.menu),
-                        onPressed: () => scaffoldkey.currentState.openDrawer(),
-                      ),
-                    ),
-                    SliverToBoxAdapter(
-                        child: SizedBox(
-                      height: MediaQuery.of(context).size.height / 15.06,
-                    )),
-                    SliverToBoxAdapter(
-                      child: FadeAnimation(
-                        1.0,
-                        Align(
-                          alignment: Alignment(-0.85, 0),
-                          child: Text('Have a nice day,\n' + userdata.name,
+                  child: CustomScrollView(
+                    slivers: <Widget>[
+                      SliverAppBar(
+                        centerTitle: true,
+                        title: FadeAnimation(
+                          1.0,
+                          Text('Explore Plans',
                               style: TextStyle(
-                                fontFamily: 'Raleway',
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize:
-                                    MediaQuery.of(context).size.height / 25.6,
-                              )),
+                                  color: Colors.white,
+                                  fontFamily: 'Raleway',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 23)),
+                        ),
+                        elevation: 0.0,
+                        backgroundColor: Colors.transparent,
+                        leading: IconButton(
+                          icon: Icon(MyFlutterApp.menu),
+                          onPressed: () =>
+                              scaffoldkey.currentState.openDrawer(),
                         ),
                       ),
-                    ),
-                    SliverToBoxAdapter(
+                      SliverToBoxAdapter(
+                          child: SizedBox(
+                        height: MediaQuery.of(context).size.height / 17,
+                      )),
+                      SliverToBoxAdapter(
+                        child: FadeAnimation(
+                          1.0,
+                          Align(
+                            alignment: Alignment(-0.8, 0),
+                            child: Text('Have a nice day,\n' + userdata.name,
+                                style: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 23,
+                                )),
+                          ),
+                        ),
+                      ),
+                      SliverToBoxAdapter(
+                          child: SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height / 20.88)),
+                      SliverToBoxAdapter(
+                        child: Align(
+                          alignment: Alignment(-0.8, 0),
+                          child: FadeAnimation(
+                            1.2,
+                            Text('Popular Meditation',
+                                style: TextStyle(
+                                    fontFamily: 'Raleway',
+                                    color: Colors.white,
+                                    fontSize: 23)),
+                          ),
+                        ),
+                      ),
+                      SliverToBoxAdapter(
                         child: SizedBox(
-                            height:
-                                MediaQuery.of(context).size.height / 20.88)),
-                    SliverToBoxAdapter(
-                      child: Align(
-                        alignment: Alignment(-0.85, 0),
+                            height: MediaQuery.of(context).size.height / 53),
+                      ),
+                      SliverToBoxAdapter(
                         child: FadeAnimation(
                           1.2,
-                          Text('Popular Meditation',
-                              style: TextStyle(
-                                  fontFamily: 'Raleway',
-                                  color: Colors.white,
-                                  fontSize:
-                                      MediaQuery.of(context).size.height / 32)),
-                        ),
-                      ),
-                    ),
-                    SliverToBoxAdapter(
-                      child: SizedBox(
-                          height: MediaQuery.of(context).size.height / 53),
-                    ),
-                    SliverToBoxAdapter(
-                      child: FadeAnimation(
-                        1.2,
-                        Container(
-                          height: MediaQuery.of(context).size.height / 4,
-                          child: Swiper(
-                            itemCount: 5,
-                            itemBuilder: (BuildContext contex, int index) {
-                              return OpenContainer(
-                                  useRootNavigator: true,
-                                  closedColor: Colors.transparent,
-                                  closedElevation: 0.0,
-                                  closedBuilder: (BuildContext context,
-                                      VoidCallback action) {
-                                    return Container(
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                2.2,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(24),
-                                            color: Colors.white,
-                                            image: DecorationImage(
-                                              image: NetworkImage(
-                                                  image_vol2[index]),
-                                              fit: BoxFit.cover,
-                                            )),
-                                        child: Container(
-                                          height: MediaQuery.of(context)
+                          Container(
+                            height: MediaQuery.of(context).size.height / 4,
+                            child: Swiper(
+                              itemCount: 5,
+                              itemBuilder: (BuildContext contex, int index) {
+                                return OpenContainer(
+                                    useRootNavigator: true,
+                                    closedColor: Colors.transparent,
+                                    closedElevation: 0.0,
+                                    closedBuilder: (BuildContext context,
+                                        VoidCallback action) {
+                                      return Container(
+                                          width: MediaQuery.of(context)
                                                   .size
-                                                  .height /
-                                              4,
+                                                  .width /
+                                              2.2,
                                           decoration: BoxDecoration(
-                                            color:
-                                                Colors.black.withOpacity(0.2),
-                                            borderRadius:
-                                                BorderRadius.circular(24),
-                                          ),
-                                          child: Stack(
-                                            children: [
-                                              Positioned(
-                                                bottom: 35,
-                                                left: 10,
-                                                child: Text(populars[index],
-                                                    textAlign: TextAlign.left,
-                                                    style: TextStyle(
-                                                      fontSize:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height /
-                                                              30.55,
-                                                      color: Colors.white,
-                                                      fontFamily: 'Raleway',
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    )),
-                                              ),
-                                              Positioned(
-                                                bottom: 10,
-                                                left: 10,
-                                                child: Text(
-                                                    time[index].split(':')[0] +
-                                                        ' minutes',
-                                                    textAlign: TextAlign.left,
-                                                    style: TextStyle(
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height /
-                                                            42.66,
-                                                        color: Colors.white
-                                                            .withOpacity(0.7),
-                                                        fontFamily: 'nexa',
+                                              borderRadius:
+                                                  BorderRadius.circular(24),
+                                              color: Colors.white,
+                                              image: DecorationImage(
+                                                image: NetworkImage(
+                                                    image_vol2[index]),
+                                                fit: BoxFit.cover,
+                                              )),
+                                          child: Container(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                4,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  Colors.black.withOpacity(0.2),
+                                              borderRadius:
+                                                  BorderRadius.circular(24),
+                                            ),
+                                            child: Stack(
+                                              children: [
+                                                Positioned(
+                                                  bottom: 35,
+                                                  left: 10,
+                                                  child: Text(populars[index],
+                                                      textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontSize: 25,
+                                                        color: Colors.white,
+                                                        fontFamily: 'Raleway',
                                                         fontWeight:
-                                                            FontWeight.bold)),
-                                              )
-                                            ],
-                                          ),
-                                        ));
-                                  },
-                                  openBuilder: (BuildContext context,
-                                      VoidCallback action) {
-                                    return Detailvol2(
-                                        image_vol2, index, populars);
-                                  });
-                            },
-                            viewportFraction: 0.6,
-                            scale: 0.85,
+                                                            FontWeight.bold,
+                                                      )),
+                                                ),
+                                                Positioned(
+                                                  bottom: 10,
+                                                  left: 10,
+                                                  child: Text(
+                                                      time[index]
+                                                              .split(':')[0] +
+                                                          ' minutes',
+                                                      textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                          fontSize: 17,
+                                                          color: Colors.white
+                                                              .withOpacity(0.7),
+                                                          fontFamily: 'nexa',
+                                                          fontWeight:
+                                                              FontWeight.bold)),
+                                                )
+                                              ],
+                                            ),
+                                          ));
+                                    },
+                                    openBuilder: (BuildContext context,
+                                        VoidCallback action) {
+                                      return Detailvol2(
+                                          image_vol2, index, populars);
+                                    });
+                              },
+                              viewportFraction: 0.6,
+                              scale: 0.85,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SliverToBoxAdapter(
-                        child: SizedBox(
-                            height:
-                                MediaQuery.of(context).size.height / 35.55)),
-                    SliverToBoxAdapter(
-                      child: Align(
-                        alignment: Alignment(-0.85, 0),
-                        child: FadeAnimation(
-                          1.3,
-                          Text('Inspirational Stories',
-                              style: TextStyle(
-                                  fontFamily: 'Raleway',
-                                  color: Colors.white,
-                                  fontSize:
-                                      MediaQuery.of(context).size.height / 32)),
+                      SliverToBoxAdapter(
+                          child: SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height / 35.55)),
+                      SliverToBoxAdapter(
+                        child: Align(
+                          alignment: Alignment(-0.8, 0),
+                          child: FadeAnimation(
+                            1.3,
+                            Text('Inspirational Stories',
+                                style: TextStyle(
+                                    fontFamily: 'Raleway',
+                                    color: Colors.white,
+                                    fontSize: 23)),
+                          ),
                         ),
                       ),
-                    ),
-                    SliverToBoxAdapter(
-                        child: SizedBox(
-                            height:
-                                MediaQuery.of(context).size.height / 37.64)),
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (BuildContext, index) {
-                          return OpenContainer(
-                            useRootNavigator: true,
-                            closedColor: Colors.transparent,
-                            closedElevation: 0.0,
-                            closedBuilder: (context, VoidCallback action) {
-                              return Padding(
-                                padding: const EdgeInsets.only(left: 23),
-                                child: FadeAnimation(
-                                  1.2,
-                                  Column(
-                                    children: <Widget>[
-                                      Row(
-                                        children: <Widget>[
-                                          Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height /
-                                                  8,
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  3.33,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(16),
-                                                  color: Colors.white,
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      blurRadius: 28,
-                                                      spreadRadius: 0.5,
-                                                      offset: Offset(0, 2),
-                                                      color: Colors.black
-                                                          .withOpacity(0.5),
-                                                    )
-                                                  ],
-                                                  image: DecorationImage(
-                                                      image: NetworkImage(
-                                                        images[index],
-                                                      ),
-                                                      fit: BoxFit.cover))),
-                                          SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  9.72),
-                                          Text(stories[index],
-                                              style: TextStyle(
-                                                  fontFamily: 'nexa',
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .height /
-                                                          35.55,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color(0xFFD1DBBD))),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height /
-                                              30)
-                                    ],
+                      SliverToBoxAdapter(
+                          child: SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height / 37.64)),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                          (BuildContext, index) {
+                            return OpenContainer(
+                              useRootNavigator: true,
+                              closedColor: Colors.transparent,
+                              closedElevation: 0.0,
+                              closedBuilder: (context, VoidCallback action) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(left: 23),
+                                  child: FadeAnimation(
+                                    1.2,
+                                    Column(
+                                      children: <Widget>[
+                                        Row(
+                                          children: <Widget>[
+                                            Container(
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height /
+                                                    8,
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    3.33,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16),
+                                                    color: Colors.white,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 28,
+                                                        spreadRadius: 0.5,
+                                                        offset: Offset(0, 2),
+                                                        color: Colors.black
+                                                            .withOpacity(0.5),
+                                                      )
+                                                    ],
+                                                    image: DecorationImage(
+                                                        image: NetworkImage(
+                                                          images[index],
+                                                        ),
+                                                        fit: BoxFit.cover))),
+                                            SizedBox(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    9.72),
+                                            Text(stories[index],
+                                                textAlign: TextAlign.start,
+                                                style: TextStyle(
+                                                    fontFamily: 'nexa',
+                                                    fontSize: 19,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color(0xFFD1DBBD))),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                30)
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
-                            openBuilder: (context, VoidCallback action) {
-                              return StreamProvider<List<bool>>.value(
-                                value: CreateData(uid: user.uid).favoritestream,
-                                child: DetailStory(
-                                  images: images,
-                                  stories: stories,
-                                  index: index,
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        childCount: 6,
-                        addRepaintBoundaries: true,
-                        addAutomaticKeepAlives: true,
+                                );
+                              },
+                              openBuilder: (context, VoidCallback action) {
+                                return StreamProvider<List<bool>>.value(
+                                  value:
+                                      CreateData(uid: user.uid).favoritestream,
+                                  child: DetailStory(
+                                    images: images,
+                                    stories: stories,
+                                    index: index,
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          childCount: 6,
+                          addRepaintBoundaries: true,
+                          addAutomaticKeepAlives: true,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             );
@@ -481,6 +389,105 @@ class _SecondTabState extends State<SecondTab> {
             return Splosh();
           }
         });
+  }
+}
+
+class Drawerbuild extends StatelessWidget {
+  const Drawerbuild({
+    Key key,
+    @required this.scaffoldkey,
+    @required Authentication auth,
+  })  : _auth = auth,
+        super(key: key);
+
+  final GlobalKey<ScaffoldState> scaffoldkey;
+  final Authentication _auth;
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      // Add a ListView to the drawer. This ensures the user can scroll
+      // through the options in the drawer if there isn't enough vertical
+      // space to fit everything.
+      child: Container(
+        decoration: BoxDecoration(color: Color(0xFF193441)),
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            SizedBox(height: MediaQuery.of(context).size.height / 6),
+            Align(
+                alignment: Alignment(0, 0),
+                child: Text(
+                  'Menu',
+                  style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontSize: 25,
+                    color: Colors.white,
+                  ),
+                )),
+            SizedBox(height: MediaQuery.of(context).size.height / 20),
+            Divider(
+              indent: MediaQuery.of(context).size.width / 7,
+              endIndent: MediaQuery.of(context).size.width / 8,
+              color: Colors.white,
+              thickness: 2.0,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.perm_identity,
+                size: 30,
+                color: Colors.white,
+              ),
+              title: Text('Profile',
+                  style: TextStyle(
+                      fontFamily: 'nexa',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white)),
+              onTap: () {
+                Navigator.push(context, FadeRoute(page: ProfileTab()));
+                scaffoldkey.currentState.openEndDrawer();
+                // ...
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.last_page,
+                size: 30,
+                color: Colors.white,
+              ),
+              title: Text('Sign out',
+                  style: TextStyle(
+                      fontFamily: 'nexa',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white)),
+              onTap: () async {
+                await _auth.signOut();
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.arrow_right,
+                size: 30,
+                color: Colors.white,
+              ),
+              title: Text('About us',
+                  style: TextStyle(
+                      fontFamily: 'nexa',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white)),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -539,42 +546,37 @@ class _DetailStoryState extends State<DetailStory> {
                       overflow: Overflow.visible,
                       children: [
                         Positioned(
-                            bottom: -20,
-                            right: MediaQuery.of(context).size.width / 15,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: favdata[widget.index]
-                                      ? Colors.red
-                                      : Color(0xFF193441)),
-                              child: Center(
-                                child: IconButton(
-                                    onPressed: () async {
-                                      await CreateData(uid: user.uid)
-                                          .updatefavorite(
-                                              !favdata[widget.index],
-                                              widget.index);
-                                    },
-                                    icon: Icon(
-                                      Icons.favorite,
-                                      color: Colors.white,
-                                      size: MediaQuery.of(context).size.height /
-                                          23,
-                                    )),
-                              ),
-                            )),
+                          bottom: -20,
+                          right: MediaQuery.of(context).size.width / 15,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: favdata[widget.index]
+                                    ? Colors.red
+                                    : Color(0xFF193441)),
+                            child: IconButton(
+                                onPressed: () async {
+                                  await CreateData(uid: user.uid)
+                                      .updatefavorite(
+                                          !favdata[widget.index], widget.index);
+                                },
+                                icon: Icon(
+                                  Icons.favorite,
+                                  color: Colors.white,
+                                )),
+                          ),
+                        ),
                       ],
                     )),
                 SizedBox(height: MediaQuery.of(context).size.height / 84),
                 Align(
-                  alignment: Alignment(-0.85, 0),
+                  alignment: Alignment(-0.8, 0),
                   child: Text('MY STORY',
                       style: TextStyle(
                           color: Color(0xFF3E606F),
                           fontFamily: 'Raleway',
                           fontWeight: FontWeight.bold,
-                          fontSize:
-                              MediaQuery.of(context).size.height / 46.66)),
+                          fontSize: 17)),
                 ),
                 Align(
                   alignment: Alignment(-0.8, 0),
@@ -583,8 +585,7 @@ class _DetailStoryState extends State<DetailStory> {
                           fontFamily: 'Raleway',
                           color: Color(0xFF193441),
                           fontWeight: FontWeight.bold,
-                          fontSize:
-                              MediaQuery.of(context).size.height / 26.66)),
+                          fontSize: 23)),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height / 84),
                 Padding(
@@ -598,8 +599,7 @@ class _DetailStoryState extends State<DetailStory> {
                           color: Color(0xFF3E606F),
                           fontFamily: 'Raleway',
                           fontWeight: FontWeight.normal,
-                          fontSize:
-                              MediaQuery.of(context).size.height / 35.66)),
+                          fontSize: 17)),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height / 84),
               ],

@@ -6,6 +6,7 @@ class Authentication {
   FirebaseAuth _auth = FirebaseAuth.instance;
   AuthResultStatus _status;
   AuthResultStatus _status1;
+  AuthResultStatus _status2;
   Stream<FirebaseUser> get user {
     return _auth.onAuthStateChanged;
   }
@@ -57,10 +58,13 @@ class Authentication {
   Future changeemail(String email, FirebaseUser user) async {
     try {
       await user.updateEmail(email);
-      return user;
+      _status2 = AuthResultStatus.successful;
     } catch (e) {
       print(e.toString());
+      _status2 = AuthResultStatus.undefined;
+      _status2 = AuthExceptionHandler.handleException(e);
     }
+    return _status2;
   }
 
   Future changepassword(String email) async {
