@@ -74,10 +74,29 @@ class _LandingState extends State<Landing> {
                           fontSize: 19)),
                 ),
               ),
-              AuthButton(
-                switchlanding: widget.switchlanding,
-                texttheme: 'Log in',
-                switchscreen: widget.switchscreen,
+              FadeAnimation(
+                1.8,
+                ButtonTheme(
+                  minWidth: MediaQuery.of(context).size.width / 1.56,
+                  height: MediaQuery.of(context).size.height / 15.6,
+                  child: RaisedButton(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24)),
+                      child: Text(
+                        'Log In',
+                        style: TextStyle(
+                          color: Color(0xFF193441),
+                          fontFamily: "nexa",
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      color: Colors.white,
+                      onPressed: () {
+                        widget.switchlanding();
+                      }),
+                ),
               ),
               AuthButton(
                   switchlanding: widget.switchlanding,
