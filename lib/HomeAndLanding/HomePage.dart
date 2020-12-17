@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:meditation_app/DatabaseManagament/Backend.dart';
 import 'package:meditation_app/Detail_pages/Detailed_audio_page.dart';
 import 'package:meditation_app/Detail_pages/Detailed_story.dart';
+import 'package:meditation_app/Different_size.dart';
 import 'package:meditation_app/HomeAndLanding/ClosedAudio.dart';
 import 'package:meditation_app/HomeAndLanding/Closed_story.dart';
 import 'package:meditation_app/HomeAndLanding/Drawer.dart';
@@ -135,10 +136,11 @@ class _SecondTabState extends State<SecondTab> {
                           1.0,
                           Text('Explore Plans',
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Raleway',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 23)),
+                                color: Colors.white,
+                                fontFamily: 'Raleway',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 2.8 * SizeConfig.textMultiplier,
+                              )),
                         ),
                         elevation: 0.0,
                         backgroundColor: Colors.transparent,
@@ -150,7 +152,7 @@ class _SecondTabState extends State<SecondTab> {
                       ),
                       SliverToBoxAdapter(
                           child: SizedBox(
-                        height: MediaQuery.of(context).size.height / 17,
+                        height: MediaQuery.of(context).size.height * 0.05,
                       )),
                       SliverToBoxAdapter(
                         child: FadeAnimation(
@@ -162,15 +164,15 @@ class _SecondTabState extends State<SecondTab> {
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 23,
+                                  fontSize: 2.7 * SizeConfig.textMultiplier,
                                 )),
                           ),
                         ),
                       ),
                       SliverToBoxAdapter(
                           child: SizedBox(
-                              height:
-                                  MediaQuery.of(context).size.height / 20.88)),
+                              height: MediaQuery.of(context).size.height *
+                                  0.05 /* 20.88*/)),
                       SliverToBoxAdapter(
                         child: Align(
                           alignment: Alignment(-0.8, 0),
@@ -180,13 +182,13 @@ class _SecondTabState extends State<SecondTab> {
                                 style: TextStyle(
                                     fontFamily: 'Raleway',
                                     color: Colors.white,
-                                    fontSize: 23)),
+                                    fontSize: 2.7 * SizeConfig.textMultiplier)),
                           ),
                         ),
                       ),
                       SliverToBoxAdapter(
                         child: SizedBox(
-                            height: MediaQuery.of(context).size.height / 53),
+                            height: MediaQuery.of(context).size.height * 0.03),
                       ),
                       SliverToBoxAdapter(
                         child: FadeAnimation(
@@ -222,8 +224,8 @@ class _SecondTabState extends State<SecondTab> {
                       ),
                       SliverToBoxAdapter(
                           child: SizedBox(
-                              height:
-                                  MediaQuery.of(context).size.height / 35.55)),
+                              height: MediaQuery.of(context).size.height *
+                                  0.05 /* 35.55*/)),
                       SliverToBoxAdapter(
                         child: Align(
                           alignment: Alignment(-0.8, 0),
@@ -233,14 +235,14 @@ class _SecondTabState extends State<SecondTab> {
                                 style: TextStyle(
                                     fontFamily: 'Raleway',
                                     color: Colors.white,
-                                    fontSize: 23)),
+                                    fontSize: 2.7 * SizeConfig.textMultiplier)),
                           ),
                         ),
                       ),
                       SliverToBoxAdapter(
                           child: SizedBox(
                               height:
-                                  MediaQuery.of(context).size.height / 37.64)),
+                                  MediaQuery.of(context).size.height * 0.03)),
                       SliverList(
                         delegate: SliverChildBuilderDelegate(
                           (BuildContext, index) {

@@ -58,8 +58,7 @@ class _EditProfileState extends State<EditProfile> {
                           color: Colors.white,
                           fontFamily: 'Raleway',
                           fontWeight: FontWeight.bold,
-                          fontSize:
-                              MediaQuery.of(context).size.height / 30.55)),
+                          fontSize: 23)),
                 ),
               ),
               extendBodyBehindAppBar: true,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meditation_app/Different_size.dart';
 import 'package:meditation_app/authentication/AuthExcpetionHandler.dart';
 import 'dart:core';
 import 'package:meditation_app/authentication/auth.dart';
@@ -57,8 +58,8 @@ class _LoginState extends State<Login> {
                       Transform.rotate(
                         angle: 26,
                         child: Container(
-                          height: MediaQuery.of(context).size.height / 9.01,
-                          width: MediaQuery.of(context).size.width / 5.29,
+                          height: MediaQuery.of(context).size.height * 0.1,
+                          width: MediaQuery.of(context).size.height * 0.1,
                           padding: EdgeInsets.all(15),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
@@ -163,7 +164,7 @@ class _LoginState extends State<Login> {
                                           BorderSide(color: Colors.white)),
                                   hintText: "Enter email",
                                   hintStyle: TextStyle(
-                                    fontSize: 17,
+                                    fontSize: 2 * SizeConfig.textMultiplier,
                                     fontFamily: "nexa",
                                     color: Color(0xFF91AA9D),
                                     fontWeight: FontWeight.normal,
@@ -422,7 +423,7 @@ class _LoginState extends State<Login> {
                               },
                               child: Text('Forgot your password? Click here',
                                   style: TextStyle(
-                                    fontSize: 17,
+                                    fontSize: 2 * SizeConfig.textMultiplier,
                                     fontFamily: "nexa",
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
@@ -441,7 +442,7 @@ class _LoginState extends State<Login> {
                                   style: TextStyle(
                                     color: Color(0xFF193441),
                                     fontFamily: "nexa",
-                                    fontSize: 20,
+                                    fontSize: 2.5 * SizeConfig.textMultiplier,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -506,7 +507,7 @@ class _LoginState extends State<Login> {
                               onTap: () => widget.switchscreen(),
                               child: Text('Not a member? Join now',
                                   style: TextStyle(
-                                    fontSize: 17,
+                                    fontSize: 2 * SizeConfig.textMultiplier,
                                     fontFamily: "nexa",
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,

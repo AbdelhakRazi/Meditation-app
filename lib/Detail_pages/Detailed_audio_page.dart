@@ -2,6 +2,7 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:meditation_app/Animation/FadeAnimation.dart';
+import 'package:meditation_app/Different_size.dart';
 import 'package:meditation_app/my_flutter_app_icons.dart';
 import 'dart:ui';
 
@@ -99,7 +100,7 @@ class _Detailvol2State extends State<Detailvol2> {
                               fontFamily: 'Raleway',
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 23)),
+                              fontSize: 2.8 * SizeConfig.textMultiplier)),
                     ),
                   ],
                 ),

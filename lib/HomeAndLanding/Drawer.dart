@@ -90,7 +90,8 @@ class Drawerbuild extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                       color: Colors.white)),
-              onTap: () {
+              onTap: () {print(MediaQuery.of(context).size.height);
+              print(MediaQuery.of(context).size.width);
                 // Update the state of the app.
                 // ...
               },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meditation_app/Different_size.dart';
 
 class ClosedAudio extends StatelessWidget {
   const ClosedAudio({
@@ -39,7 +40,7 @@ class ClosedAudio extends StatelessWidget {
                 child: Text(populars[index],
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 3 * SizeConfig.textMultiplier,
                       color: Colors.white,
                       fontFamily: 'Raleway',
                       fontWeight: FontWeight.bold,
@@ -51,7 +52,7 @@ class ClosedAudio extends StatelessWidget {
                 child: Text(time[index].split(':')[0] + ' minutes',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 2 * SizeConfig.textMultiplier,
                         color: Colors.white.withOpacity(0.7),
                         fontFamily: 'nexa',
                         fontWeight: FontWeight.bold)),

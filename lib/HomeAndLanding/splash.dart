@@ -34,8 +34,8 @@ class _SploshState extends State<Splosh> {
                 Transform.rotate(
                   angle: 26,
                   child: Container(
-                    height: MediaQuery.of(context).size.height / 9.01,
-                    width: MediaQuery.of(context).size.width / 5.29,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    width: MediaQuery.of(context).size.height * 0.1,
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),

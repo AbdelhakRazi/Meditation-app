@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meditation_app/Animation/FadeAnimation.dart';
+import 'package:meditation_app/Different_size.dart';
 import 'package:meditation_app/HomeAndLanding/ButtonClass.dart';
 
 class Landing extends StatefulWidget {
@@ -88,7 +89,7 @@ class _LandingState extends State<Landing> {
                         style: TextStyle(
                           color: Color(0xFF193441),
                           fontFamily: "nexa",
-                          fontSize: 20,
+                          fontSize: 2.5 * SizeConfig.textMultiplier,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

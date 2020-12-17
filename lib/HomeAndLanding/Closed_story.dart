@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meditation_app/Animation/FadeAnimation.dart';
+import 'package:meditation_app/Different_size.dart';
 
 class ClosedStory extends StatelessWidget {
   const ClosedStory({
@@ -48,7 +49,7 @@ class ClosedStory extends StatelessWidget {
                       textAlign: TextAlign.start,
                       style: TextStyle(
                           fontFamily: 'nexa',
-                          fontSize: 19,
+                          fontSize: 2.2 * SizeConfig.textMultiplier,
                           fontWeight: FontWeight.bold,
                           color: Color(0xFFD1DBBD))),
                 ),

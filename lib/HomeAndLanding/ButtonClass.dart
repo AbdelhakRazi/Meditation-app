@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meditation_app/Animation/FadeAnimation.dart';
+import 'package:meditation_app/Different_size.dart';
 
 class AuthButton extends StatelessWidget {
   const AuthButton({
@@ -11,7 +12,6 @@ class AuthButton extends StatelessWidget {
   final Function switchlanding;
   final Function switchscreen;
   final String texttheme;
-
   @override
   Widget build(BuildContext context) {
     return FadeAnimation(
@@ -28,7 +28,7 @@ class AuthButton extends StatelessWidget {
               style: TextStyle(
                 color: Color(0xFF193441),
                 fontFamily: "nexa",
-                fontSize: 20,
+                fontSize: 2.5 * SizeConfig.textMultiplier,
                 fontWeight: FontWeight.bold,
               ),
             ),
