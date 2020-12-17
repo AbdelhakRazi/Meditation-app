@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meditation_app/DatabaseManagament/Backend.dart';
+import 'package:meditation_app/Different_size.dart';
 import 'package:meditation_app/my_flutter_app_icons.dart';
 import 'package:meditation_app/Profile_Pages/ProfilePage.dart';
 import 'package:meditation_app/Animation/FadeAnimation.dart';
@@ -112,15 +113,15 @@ class _EditProfileState extends State<EditProfile> {
                                               onTap: () async {
                                                 await fromGallery();
                                                 if (image != null) {
-                                                  /* if (userdata.url != null) {
+                                                  if (userdata.url != null) {
                                                     await CreateData(
                                                             uid: user.uid)
                                                         .deleteImage(user.uid);
                                                     await CreateData(
                                                             uid: user.uid)
-                                                        .uploadImage(image);
-                                                  } else*/
-                                                  {
+                                                        .uploadImage(image,
+                                                            userdata.name);
+                                                  } else {
                                                     await CreateData(
                                                             uid: user.uid)
                                                         .uploadImage(image,
@@ -150,14 +151,12 @@ class _EditProfileState extends State<EditProfile> {
                                 },
                               );
                             },
-                            child: Text('UPLOAD PICTURE',
+                            child: Text('Upload Picture',
                                 style: TextStyle(
                                     fontFamily: 'Raleway',
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
-                                    fontSize:
-                                        MediaQuery.of(context).size.height /
-                                            35.55)),
+                                    fontSize: 2.7 * SizeConfig.textMultiplier)),
                           ),
                         ),
                         SizedBox(
@@ -191,9 +190,7 @@ class _EditProfileState extends State<EditProfile> {
                                       alignLabelWithHint: true,
                                       hintText: userdata.name,
                                       hintStyle: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.height /
-                                                37.64,
+                                        fontSize: 2 * SizeConfig.textMultiplier,
                                         fontFamily: "nexa",
                                         color: Color(0xFF91AA9D),
                                         fontWeight: FontWeight.bold,
@@ -261,9 +258,7 @@ class _EditProfileState extends State<EditProfile> {
                                     decoration: InputDecoration(
                                       hintText: user.email,
                                       hintStyle: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.height /
-                                                37.64,
+                                        fontSize: 2 * SizeConfig.textMultiplier,
                                         fontFamily: "nexa",
                                         color: Color(0xFF91AA9D),
                                         fontWeight: FontWeight.bold,
@@ -334,9 +329,7 @@ class _EditProfileState extends State<EditProfile> {
                                       ),
                                       hintText: 'Password',
                                       hintStyle: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.height /
-                                                37.64,
+                                        fontSize: 2 * SizeConfig.textMultiplier,
                                         fontFamily: "nexa",
                                         color: Color(0xFF91AA9D),
                                         fontWeight: FontWeight.bold,
@@ -404,10 +397,8 @@ class _EditProfileState extends State<EditProfile> {
                                           style: TextStyle(
                                             color: Color(0xFF193441),
                                             fontFamily: "nexa",
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .height /
-                                                32,
+                                            fontSize:
+                                                2.7 * SizeConfig.textMultiplier,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
